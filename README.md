@@ -22,12 +22,24 @@ Ogni skill ha la **sua licenza** dentro la sua cartella.
 
 ---
 
+## Grafici di conoscenza
+
+La cartella **grafici/** contiene grafici fatti con **Graphify**.
+
+Vengono copiati in **~/grafici** a ogni sessione, così Claude li usa **in qualsiasi progetto**.
+
+- **algebra-lineare**: 753 concetti dai PDF del corso. Contiene solo concetti e collegamenti, **non i PDF**.
+
+---
+
 ## Com'è fatto il progetto
 
 ```
 mie-skill/
 ├── README.md        questo file
 ├── installa.sh      copia le skill nella cartella di Claude
+├── grafici/         grafici di conoscenza, visibili in ogni progetto
+│   └── algebra-lineare/
 └── skills/
     ├── video-lens/
     ├── grill-me/

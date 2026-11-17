@@ -27,7 +27,24 @@ for SKILL in "$QUI"/skills/*/ ; do
 done
 
 # ---------------------------------------------------------------------
-# 3. Programmi extra richiesti da alcune skill
+# 3. Grafici di conoscenza (graphify), visibili in ogni progetto
+#    Copia grafici/ in ~/grafici e aggiunge le istruzioni per Claude
+#    alle istruzioni globali, una volta sola.
+# ---------------------------------------------------------------------
+if [ -d "$QUI/grafici" ] ; then
+    rm -rf "$HOME/grafici"
+    cp -r "$QUI/grafici" "$HOME/grafici"
+    ISTRUZIONI="$HOME/.claude/CLAUDE.md"
+    touch "$ISTRUZIONI"
+    if ! grep -q "Grafici di conoscenza (graphify)" "$ISTRUZIONI" ; then
+        printf '\n' >> "$ISTRUZIONI"
+        cat "$QUI/grafici/ISTRUZIONI-CLAUDE.md" >> "$ISTRUZIONI"
+    fi
+    echo "grafici copiati in $HOME/grafici"
+fi
+
+# ---------------------------------------------------------------------
+# 4. Programmi extra richiesti da alcune skill
 #    (se un'installazione fallisce, si va avanti lo stesso)
 # ---------------------------------------------------------------------
 
